@@ -1,20 +1,36 @@
 # Crypto Forest Signals
 This project is a Flask project
-Python: 2.7
 
-# local
+### Prerequisites
+
+- Python: 2.7
+- pip
+- follow TODO tags
+
+
+
+### run local
+```
+pip install -r requirements.txt
+```
+
+```
 python application.py
+```
 
-# deploy
-Over Amazon Elasticbeanstalk
-http://flask-env.2yvyfkqhp9.us-east-1.elasticbeanstalk.com/
+visit *localhost:5000*
 
-Possible other hosts:
-Heroku
-OpenShift
-Webfaction
-Google App Engine
-PythonAnywhere
 
-#TODO
-follow TODO tags
+### deploy
+Currently hosts at [Amazon Elasticbeanstalk] (http://flask-env.2yvyfkqhp9.us-east-1.elasticbeanstalk.com/)
+
+**Possible other hosts:**
+
+- Heroku
+- OpenShift
+- Webfaction
+- Google App Engine
+- PythonAnywhere
+
+### Author
+*Karin Lahyani*
