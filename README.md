@@ -22,7 +22,7 @@ visit *localhost:5000*
 
 
 ### deploy
-Currently hosts at [Amazon Elasticbeanstalk] (http://flask-env.2yvyfkqhp9.us-east-1.elasticbeanstalk.com/)
+Currently hosts at [Amazon Elasticbeanstalk](http://flask-env.2yvyfkqhp9.us-east-1.elasticbeanstalk.com/)
 
 **Possible other hosts:**
 
