@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>CryptoForest</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" type="image/png" href="../static/images/icons/favicon.ico"/>
+	<link rel="stylesheet" type="text/css" href="../static/vendor/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../static/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="../static/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+	<link rel="stylesheet" type="text/css" href="../static/vendor/animsition/css/animsition.min.css">
+	<link rel="stylesheet" type="text/css" href="../static/vendor/select2/select2.min.css">
+	<link rel="stylesheet" type="text/css" href="../static/css/util.css">
+	<link rel="stylesheet" type="text/css" href="../static/css/main.css">
+</head>
+<body>
+
+
+	<div class="container-contact100" style="background-image: url(../static/images/bg-02.jpg);">
+		<div class="wrap-contact100">
+
+			<div class="contact100-form-title" style="background-image: url(../static/images/bg-01.jpg);">
+				<span class="contact100-form-title-1">
+					CryptoForest
+				</span>
+				<span class="contact100-form-title-2">
+					NPAT Signals
+				</span>
+			</div>
+
+			<form class="contact100-form validate-form" action="/send_signal" method="post">
+                {% if done==False %}
+				<div class="wrap-input100 validate-input" data-validate="Coin is required">
+					<span class="label-input100">Coin</span>
+					<input class="input100" type="text" name="coin" placeholder="Enter a coin">
+					<span class="focus-input100"></span>
+				</div>
+                <div class="wrap-input100 validate-input" data-validate="Exchange is required">
+					<span class="label-input100">Exchange</span>
+					<input class="input100" type="text" name="exchange" value="Binance">
+					<span class="focus-input100"></span>
+				</div>
+                <div class="wrap-input100">
+					<span class="label-input100">Market</span>
+                    <select class="input100" id="market" name="market" onchange="chooseMarket()">
+                        <option value="BTC" selected >BTC</option>
+                        <option value="USDT" >USDT</option>
+                    </select>
+					<span class="focus-input100"></span>
+				</div>
+
+                <div class="wrap-input100 validate-input" data-validate="Entry point  is required">
+					<span class="label-input100 ">Entry Point</span>
+                    <input class="input100 same-line" placeholder="K is sat low" style="width: 35%; text-align: right" type="number" step="any" name="ep_low">
+                    <div style="margin-left: 22px; display: inline">-</div>
+                    <input class="input100 same-line" placeholder="K is sat high" style="width: 35%" type="number" step="any" name="ep_high">
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 validate-input">
+					<span class="label-input100">Take profit</span>
+					<input class="input100 same-line" placeholder="low" style="width: 35%; text-align: right" type="number" step="any" name="tp_low">
+                    <span style="display: inline-block; width: 5%">%</span>
+                    <div style="display: inline">-</div>
+                    <input class="input100 same-line" placeholder="high" style="width: 35%" type="number" step="any" name="tp_high">
+                    <span style="display: inline-block; width: 5%">%</span>
+                    <span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100">
+					<span class="label-input100">Time</span>
+                    <select class="input100" name="time">
+                        <option value="long" selected>LONG</option>
+                        <option value="mid">MID</option>
+                        <option value="short">SHORT</option>
+                    </select>
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="container-contact100-form-btn">
+					<button class="contact100-form-btn">
+						<span>
+							Submit
+							<i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
+						</span>
+					</button>
+				</div>
+                {% else %}
+                    <div style="width: 100%;">
+                    <span style="padding-right: 31px"> Signal sent successfully</span>
+                    <div class="wrapper">
+                      <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                         viewBox="0 0 98.5 98.5" enable-background="new 0 0 98.5 98.5" xml:space="preserve">
+                      <path class="checkmark" fill="none" stroke-width="8" stroke-miterlimit="10" d="M81.7,17.8C73.5,9.3,62,4,49.2,4
+                        C24.3,4,4,24.3,4,49.2s20.3,45.2,45.2,45.2s45.2-20.3,45.2-45.2c0-8.6-2.4-16.6-6.5-23.4l0,0L45.6,68.2L24.7,47.3"/>
+                      </svg>
+                    </div>
+                   </div>
+                {% endif %}
+			</form>
+
+		</div>
+	</div>
+    <script>
+        function chooseMarket() {
+            var dd = document.getElementById("market");
+            var market = dd.options[dd.selectedIndex].value
+            if (market === 'USDT'){
+                document.getElementsByName('ep_low')[0].placeholder = 'low';
+                document.getElementsByName('ep_high')[0].placeholder = 'high';
+            } else {
+                document.getElementsByName('ep_low')[0].placeholder = 'K in sat low';
+                document.getElementsByName('ep_high')[0].placeholder = 'K in sat high';
+            }
+        }
+    </script>
+	<script src="../static/vendor/jquery/jquery-3.2.1.min.js"></script>
+	<script src="../static/vendor/animsition/js/animsition.min.js"></script>
+	<script src="../static/vendor/bootstrap/js/popper.js"></script>
+	<script src="../static/vendor/bootstrap/js/bootstrap.min.js"></script>
+	<script src="../static/vendor/select2/select2.min.js"></script>
+	<script src="../static/js/main.js"></script>
+
+</body>
+</html>
